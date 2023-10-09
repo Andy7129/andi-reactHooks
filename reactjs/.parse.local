@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "andi-reactjs"
+    },
+    "andi-reactjs": {
+      "applicationId": "jOkbvmb5LqNavLQ26ASiVaaHw7ULnWeJrxjPI6MU"
+    }
+  }
+}
