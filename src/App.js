@@ -1,11 +1,11 @@
-import Komponen from './Materi/Komponen';
+import Styling from "./Materi/Styling/";
 
 function App() {
   return (
     <div className="App">
-      <Komponen />
-        </div>
+      <Styling />
+          </div>
   );
 }
 
-export default App;
+export default App; 
