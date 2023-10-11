@@ -18,7 +18,7 @@ export default class Bootstrap extends React.Component {
                     </Nav>
              </Container>
             </Navbar>
-            <img src="logo192.png" alt="logo" align='center' width={800} height={500} />
+            <img src="logo192.png" alt="logo" style={{ display: 'block', margin: '0 auto' }} width={800} height={500} />
             <p align ='center'>
                 My Bio </p>
                 <p>
