@@ -1,11 +1,23 @@
-import Form from "./Materi/Form";
+import { Link, Outlet } from "react-router-dom";
+import "./App.css"  
 
 function App() {
   return (
     <div className="App">
-      <Form />
-          </div>
+      <h1>React Routing</h1>
+
+      <nav>
+        <Link to="/home" className="mr">
+          Home
+        </Link>
+        <Link to="/about" className="mr">
+          About
+        </Link>
+      </nav>
+
+      <Outlet />
+    </div>
   );
 }
 
-export default App; 
+export default App;

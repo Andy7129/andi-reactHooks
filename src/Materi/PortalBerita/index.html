@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazong</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div id="root"></div>
+    </div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const apiKey = "05ad01315e7c444ea54d13fa92b8a799";
+            const searchInput = document.getElementById("searchInput");
+            const newsList = document.getElementById("newsList");
+    const rootElement = document.getElementById("root");
+    ReactDOM.render(<NewsApp />, rootElement);
+
+
+            searchInput.addEventListener("input", function () {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm === "") {
+                    newsList.innerHTML = "";
+                    return;
+                }
+
+                const apiUrl = `https://jsonplaceholder.typicode.com/posts`;
+
+                fetch(apiUrl)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const articles = data;
+                        let newsHTML = "";
+
+                        if (articles.length === 0) {
+                            newsHTML = "<p>Tidak ada berita yang ditemukan.</p>";
+                        } else {
+                            articles.forEach((article) => {
+                                newsHTML += `
+                                    <div class="card mb-2">
+                                        <img src="https://picsum.photos/150/100?random=${Math.random()}" class="card-img-top" alt="Gambar">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${article.title}</h5>
+                                            <p class="card-text">${article.description}</p>
+                                            <a href="${article.url}" class="btn btn-primary">Baca Selengkapnya</a>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                        }
+
+                        newsList.innerHTML = newsHTML;
+                    })
+                    .catch((error) => {
+                        console.error("Terjadi kesalahan:", error);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
