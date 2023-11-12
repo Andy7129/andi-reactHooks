@@ -13,6 +13,10 @@ function App() {
         <Link to="/about" className="mr">
           About
         </Link>
+        
+        <Link to="/contact" className="mr">
+          Contact
+        </Link>
       </nav>
 
       <Outlet />
