@@ -1,10 +1,10 @@
 import "./App.css"  
-import Redux from "./Materi/Redux";
-
+// import Redux from "./Materi/Redux";
+import NewsApp from "./Materi/PortalBerita";
 function App() {
   return (
     <div className="App">
-      <Redux />
+      <NewsApp />
     </div>
   );
 }
